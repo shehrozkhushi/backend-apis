@@ -51,7 +51,18 @@ const createPerson = (req, res) => {
     result: persons,
   });
 };
+const deletePerson = (req, res) => {
+  const cid = req.params.id;
+  persons = persons.filter(p=>p.id!=cid);
+  // return id;
+  res.status(200).json({
+    success: true,
+    message: "person deleted",
+    result: persons,
+  });
+};
 
 export default {
   createPerson,
+  deletePerson
 };
